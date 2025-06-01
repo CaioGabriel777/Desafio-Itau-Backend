@@ -1,4 +1,7 @@
 package com.caio.desafio.backend.itau.dto;
 
-public class TransacaoDto {
+import java.math.BigDecimal;
+import java.time.OffsetDateTime;
+
+public record TransacaoDto(BigDecimal valor, OffsetDateTime dataHora) {
 }
