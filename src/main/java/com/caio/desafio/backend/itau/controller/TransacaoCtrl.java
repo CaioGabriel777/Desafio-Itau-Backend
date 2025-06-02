@@ -6,10 +6,7 @@ import com.caio.desafio.backend.itau.model.Transacao;
 import com.caio.desafio.backend.itau.service.TransacaoService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/transacao")
@@ -21,7 +18,7 @@ public class TransacaoCtrl extends TransacaoException{
     }
 
     @PostMapping
-    public ResponseEntity<HttpStatus> enviarTransacao(@RequestBody TransacaoDto dto){
+    public ResponseEntity<HttpStatus> enviar(@RequestBody TransacaoDto dto){
         try{
             Transacao transacao = new Transacao(dto.valor(), dto.dataHora());
             service.enviarTransacao(transacao);
@@ -31,5 +28,12 @@ public class TransacaoCtrl extends TransacaoException{
         }catch (NegocioException e){
             return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
         }
+    }
+
+    @DeleteMapping
+    public ResponseEntity<HttpStatus> excluir(){
+
+        service.removerTransacao();
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

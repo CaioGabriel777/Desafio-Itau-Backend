@@ -42,4 +42,8 @@ public class TransacaoService extends TransacaoException{
         repository.salvarTransacao(transacao);
     }
 
+    public void removerTransacao(){
+        repository.removerTransacao();
+    }
+
 }
