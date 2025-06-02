@@ -6,7 +6,7 @@ import java.util.DoubleSummaryStatistics;
 
 public class Transacao {
 
-    private Double valor;
+    private BigDecimal valor;
 
     private OffsetDateTime dataHora;
 
@@ -14,17 +14,17 @@ public class Transacao {
 
     protected Transacao(){}
 
-    public Transacao(Double valor, OffsetDateTime dataHora){
+    public Transacao(BigDecimal valor, OffsetDateTime dataHora){
         this();
         this.valor = valor;
         this.dataHora = dataHora;
     }
 
-    public Double getValor() {
+    public BigDecimal getValor() {
         return valor;
     }
 
-    public void setValor(Double valor) {
+    public void setValor(BigDecimal valor) {
         this.valor = valor;
     }
 

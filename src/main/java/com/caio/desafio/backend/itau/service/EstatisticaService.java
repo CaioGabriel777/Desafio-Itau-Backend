@@ -14,14 +14,13 @@ public class EstatisticaService{
     private TransacaoRepository repository;
     public EstatisticaService(TransacaoRepository repository) { this.repository = repository; }
 
-
     public DoubleSummaryStatistics buscaEstatistica(){
     List<Transacao> listaTransacao = repository.getTransacoes();
 
         OffsetDateTime dataAtual = OffsetDateTime.now();
         if(dataAtual.getSecond() <= 60){
             DoubleSummaryStatistics estatistica = listaTransacao.stream()
-                    .mapToDouble(t -> t.getValor())
+                    .mapToDouble(t -> t.getValor().doubleValue())
                     .summaryStatistics();
             return estatistica;
         }
