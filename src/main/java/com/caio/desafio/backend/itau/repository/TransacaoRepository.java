@@ -16,4 +16,8 @@ public class TransacaoRepository {
 
     public void removerTransacao(){ listaTransacao.clear(); }
 
+    public List<Transacao> getTransacoes(){
+        return listaTransacao;
+    }
+
 }

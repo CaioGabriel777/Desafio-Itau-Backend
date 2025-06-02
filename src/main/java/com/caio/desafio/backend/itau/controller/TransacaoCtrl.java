@@ -17,7 +17,7 @@ public class TransacaoCtrl extends TransacaoException{
         this.service = service;
     }
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<HttpStatus> enviar(@RequestBody TransacaoDto dto){
         try{
             Transacao transacao = new Transacao(dto.valor(), dto.dataHora());

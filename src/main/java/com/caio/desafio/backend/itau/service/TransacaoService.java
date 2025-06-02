@@ -22,7 +22,7 @@ public class TransacaoService extends TransacaoException{
         if(transacao.getValor() == null){
             throw new DadosInvalidosException();
         }
-        if(transacao.getValor().compareTo(BigDecimal.ZERO) < 0){
+        if(transacao.getValor() < 0){
             throw new NegocioException();
         }
 
@@ -45,5 +45,4 @@ public class TransacaoService extends TransacaoException{
     public void removerTransacao(){
         repository.removerTransacao();
     }
-
 }
